@@ -1,148 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Cafeteria Menu</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #fdfdfd;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: #2c3e50;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .filters {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin: 20px 0;
-    }
-
-    .filters button {
-      padding: 10px 20px;
-      border: none;
-      background-color: #3498db;
-      color: white;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-
-    .filters button.active,
-    .filters button:hover {
-      background-color: #2980b9;
-    }
-
-    .menu-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .menu-item {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      width: 280px;
-      padding: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-
-    .menu-item:hover {
-      transform: scale(1.02);
-    }
-
-    .menu-item h3 {
-      margin: 0 0 10px;
-    }
-
-    .menu-item p {
-      margin: 0 0 10px;
-      color: #555;
-    }
-
-    .menu-item .price {
-      font-weight: bold;
-      color: #27ae60;
-    }
-
-    @media (max-width: 600px) {
-      .menu-item {
-        width: 90%;
-      }
-    }
-  </style>
 </head>
 <body>
-  <header>
-    <h1>Cafeteria Menu</h1>
-  </header>
 
-  <div class="filters">
-    <button class="filter-btn active" data-category="all">All</button>
-    <button class="filter-btn" data-category="breakfast">Breakfast</button>
-    <button class="filter-btn" data-category="lunch">Lunch</button>
-    <button class="filter-btn" data-category="drinks">Drinks</button>
-    <button class="filter-btn" data-category="desserts">Desserts</button>
-  </div>
+  <h1 style="text-align:center;">Cafeteria Menu</h1>
 
-  <div class="menu-container" id="menu">
-    <!-- Menu items will be inserted here -->
-  </div>
+  <h2>Breakfast</h2>
+  <ul>
+    <li><strong>Pancakes</strong> – Fluffy pancakes with syrup ($4.50)</li>
+    <li><strong>Veggie Omelet</strong> – Eggs, peppers, onions, cheese ($5.00)</li>
+  </ul>
 
-  <script>
-    const menuItems = [
-      { name: "Pancakes", description: "Fluffy pancakes with syrup", price: "$5.99", category: "breakfast" },
-      { name: "Omelette", description: "Egg omelette with veggies", price: "$4.99", category: "breakfast" },
-      { name: "Burger", description: "Beef burger with cheese", price: "$7.49", category: "lunch" },
-      { name: "Chicken Wrap", description: "Grilled chicken wrap with sauce", price: "$6.99", category: "lunch" },
-      { name: "Iced Coffee", description: "Cold brewed iced coffee", price: "$2.99", category: "drinks" },
-      { name: "Orange Juice", description: "Freshly squeezed orange juice", price: "$2.49", category: "drinks" },
-      { name: "Chocolate Cake", description: "Rich chocolate layer cake", price: "$3.99", category: "desserts" },
-      { name: "Fruit Salad", description: "Mixed seasonal fruits", price: "$3.49", category: "desserts" },
-    ];
+  <h2>Lunch</h2>
+  <ul>
+    <li><strong>Grilled Chicken Sandwich</strong> – Lettuce, tomato, mayo ($6.50)</li>
+    <li><strong>Caesar Salad</strong> – Romaine, croutons, parmesan ($5.75)</li>
+  </ul>
 
-    const menuContainer = document.getElementById("menu");
+  <h2>Drinks</h2>
+  <ul>
+    <li><strong>Iced Coffee</strong> – Chilled with milk or black ($2.50)</li>
+    <li><strong>Lemonade</strong> – Freshly squeezed ($2.00)</li>
+  </ul>
 
-    function displayMenu(category) {
-      menuContainer.innerHTML = "";
+  <h2>Desserts</h2>
+  <ul>
+    <li><strong>Chocolate Brownie</strong> – Rich and fudgy ($3.00)</li>
+    <li><strong>Fruit Cup</strong> – Mixed seasonal fruits ($3.50)</li>
+  </ul>
 
-      const filteredItems = category === "all"
-        ? menuItems
-        : menuItems.filter(item => item.category === category);
-
-      filteredItems.forEach(item => {
-        const div = document.createElement("div");
-        div.classList.add("menu-item");
-        div.innerHTML = `
-          <h3>${item.name}</h3>
-          <p>${item.description}</p>
-          <p class="price">${item.price}</p>
-        `;
-        menuContainer.appendChild(div);
-      });
-    }
-
-    document.querySelectorAll(".filter-btn").forEach(button => {
-      button.addEventListener("click", () => {
-        document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
-        button.classList.add("active");
-        displayMenu(button.dataset.category);
-      });
-    });
-
-    // Initial display
-    displayMenu("all");
-  </script>
 </body>
 </html>
