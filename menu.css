@@ -1,0 +1,76 @@
+/* General body styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Center and style the main title */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 40px;
+}
+
+/* Category headings */
+h2 {
+  font-size: 1.8rem;
+  color: #34495e;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/* Menu lists */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+}
+
+/* Individual menu items */
+ul li {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Hover effect for menu items */
+ul li:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Strong text for menu item name */
+ul li strong {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #2980b9;
+}
+
+/* Price styling */
+ul li::after {
+  content: attr(data-price);
+  float: right;
+  font-weight: 700;
+  color: #27ae60;
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  body {
+    padding: 10px;
+  }
+  
+  ul {
+    max-width: 100%;
+  }
+}
